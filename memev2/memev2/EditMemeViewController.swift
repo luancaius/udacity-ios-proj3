@@ -10,11 +10,13 @@ import UIKit
 class EditMemeViewController: UIViewController, UIImagePickerControllerDelegate,
                       UINavigationControllerDelegate, UITextFieldDelegate {
     
-    @IBOutlet weak var bottomText: UITextField!
+    
     
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var topText: UITextField!
+
+    @IBOutlet weak var bottomText: UITextField!
     
     @IBOutlet weak var shareButton: UIBarButtonItem!
     override func viewDidLoad() {
@@ -61,6 +63,7 @@ class EditMemeViewController: UIViewController, UIImagePickerControllerDelegate,
         bottomText.text = ""
         self.imagePickerView.image = nil
     }
+    
     func subscribeToKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -106,7 +109,7 @@ class EditMemeViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        imagePickerView.image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        imagePickerView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         self.dismiss(animated: true, completion: nil)
         repositionTexts()
     }
@@ -144,6 +147,11 @@ class EditMemeViewController: UIViewController, UIImagePickerControllerDelegate,
         
         var memedImage = generateMemedImage()
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+            appDelegate.memes.append(meme)
+        print("saved total \(appDelegate.memes.count)")
+
     }
     
     func generateMemedImage() -> UIImage {

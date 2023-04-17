@@ -10,10 +10,11 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var memes = [Meme]()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        memes = allMemes()
         return true
     }
 
@@ -31,6 +32,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    func allMemes() -> [Meme] {
+        let data = [
+            "Big",
+            "Blofeld",
+            "Drax",
+            "Jaws",
+            "Klebb",
+            "EmilioLargo",
+            "Lechiffre",
+            "OddJob",
+            "Scaramanga",
+            "Silva",
+            "Trevelyan",
+            "Goldfinger",
+            "Zorin",
+            "Blofeld",
+            "Drax",
+            "Jaws",
+            "Klebb",
+            "EmilioLargo",
+            "Lechiffre",
+            "OddJob",
+            "Scaramanga",
+            "Silva",
+            "Trevelyan",
+            "Goldfinger",
+            "Zorin"
+        ]
+        var memes = [Meme]()
+        for nameImage in data {
+            let topText = "Top text"
+            let bottomText = "Bottom text"
+            let originalImage = UIImage(named: nameImage)!
+            let memedImage = UIImage(named: nameImage)!
 
+            let meme = Meme(topText: topText, bottomText: bottomText, originalImage: originalImage, memedImage: memedImage)
+            memes.append(meme)
+        }
+
+        return memes
+    }
 }
 
