@@ -41,7 +41,9 @@ class MemeTableViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeViewController") as! MemeViewController
+        detailController.meme = self.allMemes[(indexPath as NSIndexPath).row]
+        present(detailController, animated: true, completion: nil)
     }
 }

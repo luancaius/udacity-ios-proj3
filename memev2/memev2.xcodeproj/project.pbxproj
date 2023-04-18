@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F65ECD129EE75F1004F31DE /* MemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F65ECD029EE75F1004F31DE /* MemeViewController.swift */; };
 		7F6EF46F295E2A9D00462F04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF46E295E2A9D00462F04 /* AppDelegate.swift */; };
 		7F6EF471295E2A9D00462F04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF470295E2A9D00462F04 /* SceneDelegate.swift */; };
 		7F6EF473295E2A9D00462F04 /* EditMemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF472295E2A9D00462F04 /* EditMemeViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F65ECD029EE75F1004F31DE /* MemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeViewController.swift; sourceTree = "<group>"; };
 		7F6EF46B295E2A9D00462F04 /* memev2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memev2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F6EF46E295E2A9D00462F04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F6EF470295E2A9D00462F04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				7FF74686296BB2CF0074CEC3 /* MemeModel.swift */,
 				7F94C14829743BB1001850FA /* MemeCollectionViewCell.swift */,
 				7FEFDDE5297DC2E2005176CD /* MemeTableViewController.swift */,
+				7F65ECD029EE75F1004F31DE /* MemeViewController.swift */,
 			);
 			path = memev2;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 				7F6EF473295E2A9D00462F04 /* EditMemeViewController.swift in Sources */,
 				7F6EF46F295E2A9D00462F04 /* AppDelegate.swift in Sources */,
 				7F6EF471295E2A9D00462F04 /* SceneDelegate.swift in Sources */,
+				7F65ECD129EE75F1004F31DE /* MemeViewController.swift in Sources */,
 				7FF74687296BB2CF0074CEC3 /* MemeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

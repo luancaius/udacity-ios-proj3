@@ -12,6 +12,7 @@ class EditMemeViewController: UIViewController, UIImagePickerControllerDelegate,
     
     
     
+    @IBOutlet weak var backButton: UINavigationItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var topText: UITextField!
@@ -47,7 +48,7 @@ class EditMemeViewController: UIViewController, UIImagePickerControllerDelegate,
         let memeTextAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.strokeColor: UIColor.black,
             NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSAttributedString.Key.font: UIFont(name: "Impact", size: 40)!,
             NSAttributedString.Key.strokeWidth:  -3.5
         ]
         textField.defaultTextAttributes = memeTextAttributes
@@ -141,6 +142,10 @@ class EditMemeViewController: UIViewController, UIImagePickerControllerDelegate,
             }
         }
         present(shareController, animated: true, completion: nil)
+    }
+    
+    @IBAction func clickCancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     func saveMeme(_ memedImage: UIImage) {
