@@ -12,6 +12,8 @@ class EditMemeViewController: UIViewController, UIImagePickerControllerDelegate,
     
     
     
+    @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var backButton: UINavigationItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imagePickerView: UIImageView!
@@ -148,15 +150,20 @@ class EditMemeViewController: UIViewController, UIImagePickerControllerDelegate,
         dismiss(animated: true, completion: nil)
     }
     
+    func toggleNavigationAndTool(_ hide:Bool) {
+        navigationBar.isHidden = hide
+        toolBar.isHidden = hide
+    }
+    
     func saveMeme(_ memedImage: UIImage) {
-        
+        toggleNavigationAndTool(true)
         var memedImage = generateMemedImage()
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
             appDelegate.memes.append(meme)
         print("saved total \(appDelegate.memes.count)")
-
+        toggleNavigationAndTool(false)
     }
     
     func generateMemedImage() -> UIImage {
